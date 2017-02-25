@@ -1,25 +1,26 @@
 gem 'minitest', '>= 5.0.0'
 require 'minitest/reporters'
 require 'minitest/autorun'
-require_relative 'alouette'
+require_relative 'alouette.rb'
 
 Minitest::Reporters.use!
 
 describe Alouette do
   describe "lines_for_verse" do
     it "returns an array of strings" do
-      lines = Alouette.lines_for_verse(3)
+      verse = Alouette.new
+      lines = verse.lines_for_verse(3)
 
       lines.must_be_kind_of Array
-
       lines.each do |line|
         line.must_be_kind_of String
       end
     end
 
     it "generates the correct line for the first verse" do
-      skip
-      Alouette.lines_for_verse(0).must_equal ['Et la tête!']
+      verse = Alouette.new
+      lines = verse.lines_for_verse(0)
+      lines.must_equal ['Et la tête!']
     end
 
     it "generates the correct lines for the third verse" do
