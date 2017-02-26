@@ -56,6 +56,3 @@ class Alouette
   end
 
 end
-
-song = Alouette.new
-puts song.sing
