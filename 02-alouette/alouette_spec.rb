@@ -8,14 +8,14 @@ Minitest::Reporters.use!
 describe Alouette do
   describe "lines_for_verse" do
     it "returns an array of strings" do
-      Alouette.new.lines_for_verse(3).must_be_kind_of Array
-      Alouette.new.lines_for_verse(3).each do |line|
+      Alouette.lines_for_verse(3).must_be_kind_of Array
+      Alouette.lines_for_verse(3).each do |line|
         line.must_be_kind_of String
       end
     end
 
     it "generates the correct line for the first verse" do
-      Alouette.new.lines_for_verse(0).must_equal ['Et la tête!']
+      Alouette.lines_for_verse(0).must_equal ['Et la tête!']
     end
 
     it "generates the correct lines for the third verse" do
@@ -24,17 +24,17 @@ describe Alouette do
         "Et le bec!",
         "Et la tête!"
       ]
-      Alouette.new.lines_for_verse(2).must_equal expected_lines
+      Alouette.lines_for_verse(2).must_equal expected_lines
     end
   end
 
   describe "verse" do
     it "returns a string" do
-      Alouette.new.verse(3).must_be_kind_of String
+      Alouette.verse(3).must_be_kind_of String
     end
 
     it "first two lines begin with 'Je te plumerai'" do
-      lines = Alouette.new.verse(3).split("\n")
+      lines = Alouette.verse(3).split("\n")
 
       # If there aren't at least 2 lines, don't continue
       lines.length.must_be :>, 1, "Not enough lines for this test"
@@ -45,7 +45,7 @@ describe Alouette do
     end
 
     it "last three lines are 'Alouette! Alouette! A-a-a-ah'" do
-      lines = Alouette.new.verse(3).split("\n")
+      lines = Alouette.verse(3).split("\n")
 
       # If there aren't at least 3 lines, don't continue
       lines.length.must_be :>, 2, "Not enough lines for this test"
@@ -56,7 +56,7 @@ describe Alouette do
     end
 
     it "middle lines begin with 'Et ' and end with '!'" do
-      lines = Alouette.new.verse(3).split("\n")
+      lines = Alouette.verse(3).split("\n")
 
       # If there aren't at least 6 lines, don't continue
       lines.length.must_be :>, 5, "Not enough lines for this test"
@@ -85,7 +85,7 @@ Alouette!
 A-a-a-ah
       __END_VERSE__
       expected_verse.strip!
-      Alouette.new.verse(2).must_equal expected_verse
+      Alouette.verse(2).must_equal expected_verse
     end
   end
 
@@ -96,18 +96,18 @@ A-a-a-ah
     end
 
     it "returns a string" do
-      Alouette.new.sing.must_be_kind_of String
+      Alouette.sing.must_be_kind_of String
     end
 
     it "begins and ends with the refrain" do
-      song = Alouette.new.sing
+      song = Alouette.sing
       refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai."
       song.start_with?(refrain + "\n\n").must_equal true, "Song didn't begin with the refrain"
       song.end_with?("\n\n" + refrain).must_equal true, "Song didn't end with the refrain"
     end
 
     it "generates the full lyrics" do
-      Alouette.new.sing.must_equal expected_lyrics
+      Alouette.sing.must_equal expected_lyrics
     end
   end
 end

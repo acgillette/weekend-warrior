@@ -1,12 +1,7 @@
 class Alouette
-  attr_accessor :verse, :song
+  @@song = []
 
-  def initialize
-    @verse = ""
-    @song = []
-  end
-
-  def lines_for_verse(verse)
+  def self.lines_for_verse(verse)
     lines = []
     line = ["Et la tête!", "Et le bec!", "Et les yeux!", "Et le cou!", "Et les ailes!",
     "Et les pattes!", "Et la queue!", "Et le dos!"]
@@ -17,7 +12,7 @@ class Alouette
     return lines
   end
 
-  def verse(num)
+  def self.verse(num)
     verse = ""
     middle = lines_for_verse(num)
     plumerai = middle[0].split(" ")
@@ -36,23 +31,23 @@ class Alouette
     return verse
   end
 
-  def sing
+  def self.sing
     num = 0
     refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
     end_song = "\n\nAlouette, gentille alouette,\nAlouette, je te plumerai."
-    @song << refrain
+    @@song << refrain
     until num > 7
-      @song << verse(num)
-      @song << "\n\n"
-      @song << refrain
+      @@song << verse(num)
+      @@song << "\n\n"
+      @@song << refrain
       num += 1
     end
     2.times do
-    @song.pop
+    @@song.pop
     end
-    @song << end_song
+    @@song << end_song
 
-    return @song.join("")
+    return @@song.join("")
   end
 
 end
