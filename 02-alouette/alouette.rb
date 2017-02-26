@@ -1,8 +1,9 @@
 class Alouette
-  attr_accessor :verse
+  attr_accessor :verse, :song
 
   def initialize
     @verse = ""
+    @song = []
   end
 
   def lines_for_verse(verse)
@@ -35,6 +36,13 @@ class Alouette
   end
 
   def sing
+    @song << "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
+    @song << "\n\nAlouette, gentille alouette,\nAlouette, je te plumerai."
+
+    return @song.join("")
   end
 
 end
+
+song = Alouette.new
+puts song.sing
