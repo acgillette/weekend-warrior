@@ -46,8 +46,7 @@ describe Alouette do
     end
 
     it "last three lines are 'Alouette! Alouette! A-a-a-ah'" do
-      skip
-      lines = Alouette.verse(3).split("\n")
+      lines = Alouette.new.verse(3).split("\n")
 
       # If there aren't at least 3 lines, don't continue
       lines.length.must_be :>, 2, "Not enough lines for this test"
@@ -58,8 +57,7 @@ describe Alouette do
     end
 
     it "middle lines begin with 'Et ' and end with '!'" do
-      skip
-      lines = Alouette.verse(3).split("\n")
+      lines = Alouette.new.verse(3).split("\n")
 
       # If there aren't at least 6 lines, don't continue
       lines.length.must_be :>, 5, "Not enough lines for this test"
@@ -74,7 +72,6 @@ describe Alouette do
     end
 
     it "generates the third verse" do
-      skip
       expected_verse = <<-__END_VERSE__
       Je te plumerai les yeux.
 Je te plumerai les yeux.
@@ -89,7 +86,7 @@ Alouette!
 A-a-a-ah
       __END_VERSE__
       expected_verse.strip!
-      Alouette.verse(2).must_equal expected_verse
+      Alouette.new.verse(2).must_equal expected_verse
     end
   end
 
