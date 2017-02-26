@@ -1,20 +1,23 @@
 class Alouette
-  attr_accessor :verse
+  attr_accessor :verse, :lines
 
   def initialize
-    @verse = []
+    @verse = ""
+    @lines = []
   end
 
-  def lines_for_verse(num)
-    lines = ["Et la tête!", "Et le bec!", "Et les yeux!"]
-    until num < 0
-      @verse << lines[num]
-      num -= 1
+  def lines_for_verse(verse)
+    line = ["Et la tête!", "Et le bec!", "Et les yeux!", "Et le cou!", "Et les ailes!",
+    "Et les pattes!", "Et la queue!", "Et le dos!"]
+    until verse < 0
+      @lines << line[num]
+      verse -= 1
     end
-    return @verse
+    return @line
   end
 
-  def verse
+  def verse(verse)
+    return @verse
   end
 
   def sing
