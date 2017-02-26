@@ -10,10 +10,10 @@ class Alouette
     line = ["Et la tête!", "Et le bec!", "Et les yeux!", "Et le cou!", "Et les ailes!",
     "Et les pattes!", "Et la queue!", "Et le dos!"]
     until verse < 0
-      @lines << line[num]
+      @lines << line[verse]
       verse -= 1
     end
-    return @line
+    return @lines
   end
 
   def verse(verse)

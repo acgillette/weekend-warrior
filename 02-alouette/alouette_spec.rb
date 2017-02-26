@@ -30,7 +30,7 @@ describe Alouette do
 
   describe "verse" do
     it "returns a string" do
-      Alouette.verse(3).must_be_kind_of String
+      Alouette.new.verse(3).must_be_kind_of String
     end
 
     it "first two lines begin with 'Je te plumerai'" do
