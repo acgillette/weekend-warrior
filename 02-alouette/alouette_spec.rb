@@ -8,8 +8,8 @@ Minitest::Reporters.use!
 describe Alouette do
   describe "lines_for_verse" do
     it "returns an array of strings" do
-      Alouette.new.lines_for_verse(3).must_be_kind_of Array
-      Alouette.new.lines_for_verse(3).each do |line|
+      Alouette.new.lines_for_verse(2).must_be_kind_of Array
+      Alouette.new.lines_for_verse(2).each do |line|
         line.must_be_kind_of String
       end
     end
