@@ -34,8 +34,7 @@ describe Alouette do
     end
 
     it "first two lines begin with 'Je te plumerai'" do
-      skip
-      lines = Alouette.verse(3).split("\n")
+      lines = Alouette.new.verse(3).split("\n")
 
       # If there aren't at least 2 lines, don't continue
       lines.length.must_be :>, 1, "Not enough lines for this test"
