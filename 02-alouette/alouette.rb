@@ -17,27 +17,40 @@ class Alouette
     return lines
   end
 
-  def verse(verse)
-    middle = lines_for_verse(verse)
+  def verse(num)
+    verse = ""
+    middle = lines_for_verse(num)
     plumerai = middle[0].split(" ")
     plumerai.shift
     plumerai = plumerai.join(" ")
     plumerai.delete! '!'
     2.times do
-      @verse += "Je te plumerai #{plumerai}.\n"
+      verse += "Je te plumerai #{plumerai}.\n"
     end
     middle.each do |line|
       2.times do
-        @verse += line + "\n"
+        verse += line + "\n"
       end
     end
-    @verse += "Alouette!\nAlouette!\nA-a-a-ah"
-    return @verse
+    verse += "Alouette!\nAlouette!\nA-a-a-ah"
+    return verse
   end
 
   def sing
-    @song << "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
-    @song << "\n\nAlouette, gentille alouette,\nAlouette, je te plumerai."
+    num = 0
+    refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
+    end_song = "\n\nAlouette, gentille alouette,\nAlouette, je te plumerai."
+    @song << refrain
+    until num > 7
+      @song << verse(num)
+      @song << "\n\n"
+      @song << refrain
+      num += 1
+    end
+    2.times do
+    @song.pop
+    end
+    @song << end_song
 
     return @song.join("")
   end
