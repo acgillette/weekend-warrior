@@ -8,29 +8,23 @@ Minitest::Reporters.use!
 describe Alouette do
   describe "lines_for_verse" do
     it "returns an array of strings" do
-      verse = Alouette.new
-      lines = verse.lines_for_verse(3)
-
-      lines.must_be_kind_of Array
-      lines.each do |line|
+      Alouette.new.lines_for_verse(3).must_be_kind_of Array
+      Alouette.new.lines_for_verse(3).each do |line|
         line.must_be_kind_of String
       end
     end
 
     it "generates the correct line for the first verse" do
-      verse = Alouette.new
-      lines = verse.lines_for_verse(0)
-      lines.must_equal ['Et la tête!']
+      Alouette.new.lines_for_verse(0).must_equal ['Et la tête!']
     end
 
     it "generates the correct lines for the third verse" do
-      skip
       expected_lines = [
         "Et les yeux!",
         "Et le bec!",
         "Et la tête!"
       ]
-      Alouette.lines_for_verse(2).must_equal expected_lines
+      Alouette.new.lines_for_verse(2).must_equal expected_lines
     end
   end
 
