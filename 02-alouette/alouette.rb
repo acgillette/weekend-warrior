@@ -49,5 +49,4 @@ class Alouette
 
     return @@song.join("")
   end
-
 end

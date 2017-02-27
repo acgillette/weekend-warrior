@@ -34,6 +34,10 @@ describe Alouette do
     end
 
     it "first two lines begin with 'Je te plumerai'" do
+<<<<<<< HEAD
+=======
+      skip
+>>>>>>> parent of 2f38f08... Whoops accidentally skipped a test
       lines = Alouette.verse(3).split("\n")
 
       # If there aren't at least 2 lines, don't continue
