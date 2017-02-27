@@ -1,5 +1,4 @@
 class Alouette
-  @@song = []
 
   def self.lines_for_verse(verse)
     lines = []
@@ -32,21 +31,22 @@ class Alouette
   end
 
   def self.sing
+    song = []
     num = 0
     refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
     end_song = "\n\nAlouette, gentille alouette,\nAlouette, je te plumerai."
-    @@song << refrain
+    song << refrain
     until num > 7
-      @@song << verse(num)
-      @@song << "\n\n"
-      @@song << refrain
+      song << verse(num)
+      song << "\n\n"
+      song << refrain
       num += 1
     end
     2.times do
-    @@song.pop
+    song.pop
     end
-    @@song << end_song
+    song << end_song
 
-    return @@song.join("")
+    return song.join("")
   end
 end
